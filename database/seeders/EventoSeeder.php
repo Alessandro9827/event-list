@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Evento;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use faker\Generator as Faker;
+use Faker\Generator as Faker;
 
 class EventoSeeder extends Seeder
 {
@@ -17,7 +17,8 @@ class EventoSeeder extends Seeder
         for ($i=0; $i < 10; $i++) { 
             $newEvento = new Evento();
             $newEvento->nome_evento = $faker->unique()->monthName();
-            $newEvento->data_evento = $faker->unique()->date();
+            $newEvento->data_evento = $faker->dateTimeBetween('+1 month', '+1 year');
+            $newEvento->save();
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Persona;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use faker\Generator as Faker;
+use Faker\Generator as Faker;
 
 class PersonaSeeder extends Seeder
 {
@@ -18,6 +18,7 @@ class PersonaSeeder extends Seeder
             $newPersona = new Persona();
             $newPersona->nome = $faker->unique()->firstName();
             $newPersona->cognome = $faker->unique()->lastName();
+            $newPersona->save();
         }
     }
 }
