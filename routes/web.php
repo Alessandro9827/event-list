@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventoController as GuestEventoController;
+use App\Http\Controllers\PersonaController as GuestPersonaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Mostra la homepage
+Route::get('/', function () { return view('pages.home');})->name('pages.home');
+
+//Mostra tutti gli eventi
+Route::get('/eventi', [GuestEventoController::class, 'index'])->name('guest.eventi.index');
+//Mostra l'evento selezionato
+Route::get('/eventi/{evento}', [GuestEventoController::class, 'show'])->name('guest.eventi.show');

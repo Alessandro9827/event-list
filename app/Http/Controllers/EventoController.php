@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evento;
 use Illuminate\Http\Request;
 
 class EventoController extends Controller
@@ -11,7 +12,9 @@ class EventoController extends Controller
      */
     public function index()
     {
-        //
+        $eventi = Evento ::all();
+        //dd ($eventi) ;
+        return view('guest.eventi.index', compact('eventi'));
     }
 
     /**
@@ -35,7 +38,8 @@ class EventoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $evento = Evento::findOrFail($id);
+        dd($evento);
     }
 
     /**
