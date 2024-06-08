@@ -22,3 +22,8 @@ Route::get('/', function () { return view('pages.home');})->name('pages.home');
 Route::get('/eventi', [GuestEventoController::class, 'index'])->name('guest.eventi.index');
 //Mostra l'evento selezionato
 Route::get('/eventi/{evento}', [GuestEventoController::class, 'show'])->name('guest.eventi.show');
+
+//Mostra tutte le persone
+Route::get('/persone', [GuestPersonaController::class, 'index'])->name('guest.persone.index');
+//Mostra la persona selezionata
+Route::get('/persone/{persona}', [GuestPersonaController::class, 'show'])->name('guest.persone.show');

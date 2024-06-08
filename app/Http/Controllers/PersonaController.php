@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Persona;
 use Illuminate\Http\Request;
 
 class PersonaController extends Controller
@@ -11,7 +12,9 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        //
+        $persone = Persona ::all();
+        //dd ($persone) ;
+        return view('guest.persone.index', compact('persone'));
     }
 
     /**
@@ -35,7 +38,9 @@ class PersonaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $persona = Persona::findOrFail($id);
+        //dd($persona);
+        return view('guest.persone.show', compact('persona'));
     }
 
     /**

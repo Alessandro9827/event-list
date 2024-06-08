@@ -8,11 +8,11 @@
                 <div class="row mb-3 justify-content-center">
                     <div class="col-7 p-3">
                         <div class="card p-4 text-center">
-                            <h1>
-                                {{ $evento->nome_evento }}
-                            </h1>
                             <p>
-                                Data evento: {{ $evento->data_evento }}
+                                Nome: {{ $persona->nome }}
+                            </p>
+                            <p>
+                                Cognome: {{ $persona->cognome }}
                             </p>
                         </div>
                     </div>

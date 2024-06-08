@@ -1,1 +1,19 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+a{
+    text-decoration: none;
+}
+
+
+ul{
+    list-style: none;
+
+    li.active{
+        background-color: lightcoral;
+    }
+
+    a{
+        color: black;
+        font-weight: bold;
+    }
+}

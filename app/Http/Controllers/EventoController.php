@@ -39,7 +39,8 @@ class EventoController extends Controller
     public function show(string $id)
     {
         $evento = Evento::findOrFail($id);
-        dd($evento);
+        //dd($evento);
+        return view('guest.eventi.show', compact('evento'));
     }
 
     /**
