@@ -22,7 +22,7 @@ class EventoController extends Controller
      */
     public function create()
     {
-        //
+        return view('guest.eventi.create');
     }
 
     /**
@@ -30,7 +30,14 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newEventoData = $request->all();
+
+        $newEvento = new Evento();
+        $newEvento->nome_evento = $newEventoData['nome_evento'];
+        $newEvento->data_evento = $newEventoData['data_evento'];
+
+        $newEvento->save();
+        return redirect()->route('guest.eventi.show', $newEvento->id);
     }
 
     /**
