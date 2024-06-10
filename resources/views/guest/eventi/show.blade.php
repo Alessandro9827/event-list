@@ -14,6 +14,15 @@
                             <p>
                                 Data evento: {{ $evento->data_evento }}
                             </p>
+                            <h2>Partecipanti:</h2>
+                            <ul>
+                                @foreach($evento->persone as $persona)
+                                    <li>{{ $persona->nome }} {{ $persona->cognome }}</li>
+                                @endforeach
+                            </ul>
+                            <a href="{{ route('guest.eventi.edit', $evento->id) }}">
+                                Modifica evento
+                            </a>
                         </div>
                     </div>
                 </div>

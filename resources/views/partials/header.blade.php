@@ -19,18 +19,6 @@
                         Persone
                     </a>
                 </li>
-
-                <li class="p-3 {{ ( Route::currentRouteName() == 'guest.eventi.create') ? 'active' : '' }}">
-                    <a href="{{ route('guest.eventi.create') }}">
-                        Aggiungi evento
-                    </a>
-                </li>
-
-                <li class="p-3 {{ ( Route::currentRouteName() == 'guest.persone.create') ? 'active' : '' }}">
-                    <a href="{{ route('guest.persone.create') }}">
-                        Aggiungi persona
-                    </a>
-                </li>
             </ul>
         </nav>
     </section>

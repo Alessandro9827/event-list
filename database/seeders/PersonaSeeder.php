@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Evento;
 use App\Models\Persona;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -12,13 +13,15 @@ class PersonaSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(Faker $faker): void
+    public function run(Faker $faker)
     {
-        for ($i=0; $i < 50; $i++) { 
+        $eventIds = Evento::pluck('id')->toArray(); // Ottieni gli ID degli eventi
+
+        for ($i = 0; $i < 50; $i++) {
             $newPersona = new Persona();
-            $newPersona->nome = $faker->unique()->firstName();
-            $newPersona->cognome = $faker->unique()->lastName();
-            $newPersona->event_id = $faker->randomElement();
+            $newPersona->first_name = $faker->unique()->firstName();
+            $newPersona->last_name = $faker->unique()->lastName();
+            $newPersona->event_id = $faker->randomElement($eventIds); // Passa gli ID degli eventi a randomElement
             $newPersona->save();
         }
     }
