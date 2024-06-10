@@ -18,6 +18,7 @@ class PersonaSeeder extends Seeder
             $newPersona = new Persona();
             $newPersona->nome = $faker->unique()->firstName();
             $newPersona->cognome = $faker->unique()->lastName();
+            $newPersona->event_id = $faker->randomElement();
             $newPersona->save();
         }
     }

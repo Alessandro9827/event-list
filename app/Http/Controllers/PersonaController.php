@@ -22,7 +22,7 @@ class PersonaController extends Controller
      */
     public function create()
     {
-        //
+        return view('guest.persone.create');
     }
 
     /**
@@ -30,7 +30,15 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $newPersonaData = $request->all();
+
+        $newPersona = new Persona();
+        $newPersona->nome = $newPersonaData['nome'];
+        $newPersona->cognome = $newPersonaData['cognome'];
+
+        $newPersona->save();
+        return redirect()->route('guest.persone.show', $newPersona->id);
     }
 
     /**

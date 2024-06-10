@@ -20,14 +20,21 @@ Route::get('/', function () { return view('pages.home');})->name('pages.home');
 
 //Mostra tutti gli eventi
 Route::get('/eventi', [GuestEventoController::class, 'index'])->name('guest.eventi.index');
+
 //Form per creare un evento
 Route::get('/eventi/create', [GuestEventoController::class, 'create'])->name('guest.eventi.create');
 Route::post('/eventi', [GuestEventoController::class, 'store'])->name('guest.eventi.store');
+
 //Mostra l'evento selezionato
 Route::get('/eventi/{evento}', [GuestEventoController::class, 'show'])->name('guest.eventi.show');
 
 
 //Mostra tutte le persone
 Route::get('/persone', [GuestPersonaController::class, 'index'])->name('guest.persone.index');
+
+//Form per creare una persona
+Route::get('/persone/create', [GuestPersonaController::class, 'create'])->name('guest.persone.create');
+Route::post('/persone', [GuestPersonaController::class, 'store'])->name('guest.persone.store');
+
 //Mostra la persona selezionata
 Route::get('/persone/{persona}', [GuestPersonaController::class, 'show'])->name('guest.persone.show');
